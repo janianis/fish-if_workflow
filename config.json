@@ -1,0 +1,65 @@
+{
+  "inputdir": "/location/data",
+  "outputdir": "/location/data/output",
+  "parameters": {
+    "scale": [200, 65, 65],
+    "spot_radius": [880, 120, 120],
+    "sigma": [0.75, 2.3, 2.3],
+    "patch_size": [200, 200],
+    "translate_dic_by": [10, 10],
+    "expand_masks_by": 1,
+    "organism": "S.cerevisiae"
+  },
+  "channels": {
+    "CY5": {
+      "filter": "CY5",
+      "mrna": "CY5",
+      "threshold": 45,
+      "colormap": "magenta"
+    },
+    "FITC": {
+      "filter": "FITC",
+      "mrna": "FITC",
+      "threshold": 30,
+      "colormap": "cyan"
+    },
+    "DAPI": {
+      "filter": "DAPI",
+      "mrna": "DAPI",
+      "colormap": "blue"
+    }
+  },
+  "analysis": {
+    "roles": {
+      "mrna": {
+        "channel": "CY5",
+        "data_key": "CY5",
+        "image_file": "CY5.tif",
+        "colormap": "magenta"
+      },
+      "protein": {
+        "channel": "FITC",
+        "image_file": "FITC.tif",
+        "colormap": "green"
+      },
+      "nuclear": {
+        "channel": "DAPI",
+        "image_file": "DAPI.tif",
+        "colormap": "blue"
+      }
+    },
+    "dic_image_file": "DIC.tif",
+    "expected_image_count": null,
+    "spot_source": "decomposed_spots",
+    "dapi_min_overlap_px": 10,
+    "mask_expansion_px": 1,
+    "protein_background_exclusion_px": 3,
+    "timepoints": [0, 20, 40, 60],
+    "metadata": {
+      "timepoint_regex": "FISH-IF_(\\d+)_",
+      "required": false,
+      "default_timepoint_min": null,
+      "by_folder": {}
+    }
+  }
+}
